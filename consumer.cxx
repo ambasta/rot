@@ -58,6 +58,7 @@ auto MongoConsumer::get_server_status() {
         auto output = (*entry)["test"].run_command(query.extract());
         return bsoncxx::string::to_string(output.view()["version"].get_utf8().value);
     } catch (const std::exception &exception) {
+        std::cerr << "Unexpected exception: " << exception.what() << std::endl;
         throw exception;
     }
 }
@@ -98,9 +99,10 @@ MongoConsumer::MongoConsumer(moodycamel::ConcurrentQueue<std::string_view> &queu
     } else {
         uri_string << "127.0.0.1:27017";
     }
+    uri_string << "/";
 
-    if (config.has_key("authenticationDatabase")) {
-        uri_string << "?authenticationDatabase=" << (std::string)config["authenticationDatabase"];
+    if (config.has_key("authSource")) {
+        uri_string << "?authSource=" << (std::string)config["authSource"];
     }
 
     std::cout << "URI: " << uri_string.str() << std::endl;
