@@ -25,7 +25,7 @@ public:
 
     mongocxx::pool::entry acquire();
 
-    bsoncxx::stdx::optional<mongocxx::pool::entry> try_acquire();
+//    bsoncxx::stdx::optional<mongocxx::pool::entry> try_acquire();
 
     static MongoClientWrapper &instance();
 };

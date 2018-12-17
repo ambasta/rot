@@ -25,17 +25,18 @@ const Aws::Auth::AWSCredentials KinesisProducer::get_credentials(configuru::Conf
 
 const Aws::Firehose::Model::Record KinesisProducer::make_record(const std::string_view data) {
     Aws::Firehose::Model::Record record;
+    std::cout << "[KDF] Making record <" << data.data() << ">" << std::endl;
     auto buffer = Aws::Utils::ByteBuffer(reinterpret_cast<const unsigned char *>(data.data()), data.length());
     record.SetData(buffer);
     return record;
 }
 
-const Aws::Firehose::Model::PutRecordRequest KinesisProducer::make_request(std::string_view data) {
-    Aws::Firehose::Model::PutRecordRequest request;
-    request.SetDeliveryStreamName(Aws::String(streamName));
-    request.SetRecord(make_record(data));
-    return request;
-}
+//const Aws::Firehose::Model::PutRecordRequest KinesisProducer::make_request(std::string_view data) {
+//    Aws::Firehose::Model::PutRecordRequest request;
+//    request.SetDeliveryStreamName(Aws::String(streamName));
+//    request.SetRecord(make_record(data));
+//    return request;
+//}
 
 const Aws::Firehose::Model::PutRecordBatchRequest KinesisProducer::make_batch_request(
         const std::string_view *data,
@@ -68,9 +69,10 @@ void KinesisProducer::logger(const Aws::Firehose::FirehoseClient *firehoseClient
 }
 
 void KinesisProducer::init() {
-    while (true) {
+    while (pushToKDF) {
         std::string_view data[BATCH_SIZE];
         if (std::size_t size = queue.try_dequeue_bulk(data, BATCH_SIZE); size > 0) {
+            std::cout << "Fetched " << size << " records. Attempting to push" << std::endl;
             push_data_to_stream(data, size, logger);
         }
     }
@@ -78,9 +80,9 @@ void KinesisProducer::init() {
 
 KinesisProducer::KinesisProducer(moodycamel::ConcurrentQueue<std::string_view>& queue, configuru::Config &config) : queue(queue) {
     options = Aws::SDKOptions{};
-    options.loggingOptions.logLevel = Aws::Utils::Logging::LogLevel::Trace;
+    options.loggingOptions.logLevel = Aws::Utils::Logging::LogLevel::Error;
     options.loggingOptions.logger_create_fn = [] {
-        return std::make_shared<Aws::Utils::Logging::ConsoleLogSystem>(Aws::Utils::Logging::LogLevel::Trace);
+        return std::make_shared<Aws::Utils::Logging::ConsoleLogSystem>(Aws::Utils::Logging::LogLevel::Error);
     };
     Aws::InitAPI(options);
     std::cout << "Initialized AWS API" << std::endl;

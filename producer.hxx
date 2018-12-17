@@ -24,7 +24,8 @@ class KinesisProducer {
 private:
     Aws::SDKOptions options;
     Aws::Client::ClientConfiguration clientConfiguration;
-    std::shared_ptr<Aws::Firehose::FirehoseClient> firehoseClient;
+    std::shared_ptr<Aws::Firehose::FirehoseClient> firehoseClient = nullptr;
+    bool pushToKDF = true;
 
     const char THREAD_POOL_NAME[20] = "kinesis_thread_pool";
 
@@ -36,8 +37,8 @@ public:
     static const Aws::Firehose::Model::Record make_record(
             std::string_view);
 
-    const Aws::Firehose::Model::PutRecordRequest make_request(
-            std::string_view);
+//    const Aws::Firehose::Model::PutRecordRequest make_request(
+//            std::string_view);
 
     const Aws::Firehose::Model::PutRecordBatchRequest make_batch_request(
             const std::string_view*, std::size_t);

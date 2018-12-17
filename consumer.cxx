@@ -18,7 +18,7 @@
 #include <sstream>
 
 
-std::string_view encode(std::string_view source, size_t length) {
+std::string_view encode(std::string_view source, int length) {
     auto *curl = curl_easy_init();
 
     if (curl) {
@@ -41,9 +41,9 @@ mongocxx::pool::entry MongoClientWrapper::acquire() {
     return _pool->acquire();
 }
 
-bsoncxx::stdx::optional<mongocxx::pool::entry> MongoClientWrapper::try_acquire() {
-    return _pool->try_acquire();
-}
+//bsoncxx::stdx::optional<mongocxx::pool::entry> MongoClientWrapper::try_acquire() {
+//    return _pool->try_acquire();
+//}
 
 MongoClientWrapper &MongoClientWrapper::instance() {
     static MongoClientWrapper instance;
@@ -73,7 +73,7 @@ MongoConsumer::MongoConsumer(moodycamel::ConcurrentQueue<std::string_view> &queu
     if (config.has_key("user") and config.has_key("pass")) {
         std::string user = (std::string)config["user"];
         std::string pass = (std::string)config["pass"];
-        uri_string << encode(user, user.length()) << ":" << encode(pass, pass.length()) << "@";
+        uri_string << encode(user, (int)user.length()) << ":" << encode(pass, (int)pass.length()) << "@";
     }
 
     if (config.has_key("hosts")) {
@@ -134,6 +134,7 @@ void MongoConsumer::init() {
     while (true) {
         for (const auto &event: stream) {
             auto event_json_string = bsoncxx::to_json(event);
+            std::cout << "[MongoDB] Added record to queue: <" << event_json_string << ">" << std::endl;
             queue.enqueue(event_json_string);
         }
     }
