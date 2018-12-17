@@ -4,6 +4,8 @@
 #include "producer.hxx"
 #include "globals.hxx"
 
+#include <iostream>
+
 #include <aws/core/auth/AWSCredentialsProvider.h>
 #include <aws/core/auth/AWSCredentialsProviderChain.h>
 
@@ -81,6 +83,7 @@ KinesisProducer::KinesisProducer(moodycamel::ConcurrentQueue<std::string_view>& 
         return std::make_shared<Aws::Utils::Logging::ConsoleLogSystem>(Aws::Utils::Logging::LogLevel::Trace);
     };
     Aws::InitAPI(options);
+    std::cout << "Initialized AWS API" << std::endl;
 
     if (config.has_key("STREAM_NAME")) {
         streamName = (std::string)config["STREAM_NAME"];
@@ -91,7 +94,12 @@ KinesisProducer::KinesisProducer(moodycamel::ConcurrentQueue<std::string_view>& 
             THREAD_POOL_NAME, MAX_CONCURRENCY);
     clientConfiguration.region = Aws::Region::AP_SOUTH_1;
 
-    firehoseClient = Aws::Firehose::FirehoseClient(get_credentials(config), clientConfiguration);
+    try {
+        firehoseClient = Aws::Firehose::FirehoseClient(get_credentials(config), clientConfiguration);
+    } catch (std::exception& exception) {
+        std::cerr << "Exception occurred while connecting to client: " << exception.what() << std::endl;
+        throw exception;
+    }
 }
 
 KinesisProducer::~KinesisProducer() {
