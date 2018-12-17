@@ -55,7 +55,7 @@ void KinesisProducer::push_data_to_stream(const std::string_view *data,
                                           std::size_t size,
                                           const Aws::Firehose::PutRecordBatchResponseReceivedHandler &callback) {
     auto request = make_batch_request(data, size);
-    firehoseClient.PutRecordBatchAsync(request, callback);
+    firehoseClient->PutRecordBatchAsync(request, callback);
 }
 
 void KinesisProducer::logger(const Aws::Firehose::FirehoseClient *firehoseClient,
@@ -95,7 +95,10 @@ KinesisProducer::KinesisProducer(moodycamel::ConcurrentQueue<std::string_view>& 
     clientConfiguration.region = Aws::Region::AP_SOUTH_1;
 
     try {
-        firehoseClient = Aws::Firehose::FirehoseClient(get_credentials(config), clientConfiguration);
+        firehoseClient = Aws::MakeShared<Aws::Firehose::FirehoseClient>(
+                ALLOCATION_TAG,
+                get_credentials(config),
+                clientConfiguration);
     } catch (std::exception& exception) {
         std::cerr << "Exception occurred while connecting to client: " << exception.what() << std::endl;
         throw exception;

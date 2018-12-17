@@ -18,11 +18,13 @@
 #include <aws/firehose/model/PutRecordRequest.h>
 #include <aws/firehose/model/PutRecordBatchRequest.h>
 
+static const char* ALLOCATION_TAG = "FirehoseClient";
+
 class KinesisProducer {
 private:
     Aws::SDKOptions options;
     Aws::Client::ClientConfiguration clientConfiguration;
-    Aws::Firehose::FirehoseClient firehoseClient;
+    std::shared_ptr<Aws::Firehose::FirehoseClient> firehoseClient;
 
     const char THREAD_POOL_NAME[20] = "kinesis_thread_pool";
 
