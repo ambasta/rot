@@ -1,0 +1,6 @@
+[submodule "third_party/concurrentqueue"]
+	path = third_party/concurrentqueue
+	url = https://github.com/cameron314/concurrentqueue.git
+[submodule "third_party/Configuru"]
+	path = third_party/Configuru
+	url = https://github.com/emilk/Configuru.git
