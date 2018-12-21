@@ -1,9 +1,9 @@
 [submodule "vendor/Configuru"]
-	path = vendor/Configuru
+	path = src/vendor/Configuru
 	url = https://github.com/emilk/Configuru.git
 [submodule "vendor/concurrentqueue"]
-	path = vendor/concurrentqueue
+	path = src/vendor/concurrentqueue
 	url = https://github.com/cameron314/concurrentqueue.git
 [submodule "vendor/spdlog"]
-	path = vendor/spdlog
+	path = src/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git

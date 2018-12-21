@@ -9,5 +9,5 @@ IF(ConcurrentQueue_INCLUDE_DIR)
     SET_TARGET_PROPERTIES(ConcurrentQueue PROPERTIES
         INTERFACE_INCLUDE_DIRECTORIES ${ConcurrentQueue_INCLUDE_DIR})
 ELSE()
-    MESSAGE(FATAL "ConcurrentQueue not found")
+    MESSAGE(FATAL_ERROR "ConcurrentQueue not found")
 ENDIF()

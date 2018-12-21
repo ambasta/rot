@@ -9,5 +9,5 @@ IF(Configuru_INCLUDE_DIR)
     SET_TARGET_PROPERTIES(Configuru PROPERTIES
             INTERFACE_INCLUDE_DIRECTORIES ${Configuru_INCLUDE_DIR})
 ELSE()
-    MESSAGE(FATAL "Configuru not found")
+    MESSAGE(FATAL_ERROR "Configuru not found")
 ENDIF()
