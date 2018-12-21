@@ -13,7 +13,7 @@
 
 
 int main() {
-    moodycamel::ConcurrentQueue<std::string_view> queue;
+    moodycamel::ConcurrentQueue<std::string> queue;
 
     auto config = configuru::parse_file("input.json", configuru::JSON);
     auto consumer_config = config["consumer"];

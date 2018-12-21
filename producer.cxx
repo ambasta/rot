@@ -25,9 +25,8 @@ const Aws::Auth::AWSCredentials KinesisProducer::get_credentials(configuru::Conf
 
 const Aws::Firehose::Model::Record KinesisProducer::make_record(const std::string_view data) {
     Aws::Firehose::Model::Record record;
-    std::cout << "[KDF] Making record <" << data.data() << ">" << std::endl;
-    auto buffer = Aws::Utils::ByteBuffer(reinterpret_cast<const unsigned char *>(data.data()), data.length());
-    record.SetData(buffer);
+    std::string message{data};
+    record.SetData(Aws::Utils::ByteBuffer((unsigned char*)message.c_str(), message.length()));
     return record;
 }
 
@@ -78,7 +77,7 @@ void KinesisProducer::init() {
     }
 }
 
-KinesisProducer::KinesisProducer(moodycamel::ConcurrentQueue<std::string_view>& queue, configuru::Config &config) : queue(queue) {
+KinesisProducer::KinesisProducer(moodycamel::ConcurrentQueue<std::string>& queue, configuru::Config &config) : queue(queue) {
     options = Aws::SDKOptions{};
     options.loggingOptions.logLevel = Aws::Utils::Logging::LogLevel::Error;
     options.loggingOptions.logger_create_fn = [] {

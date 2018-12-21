@@ -63,11 +63,10 @@ auto MongoConsumer::get_server_status() {
     }
 }
 
-MongoConsumer::MongoConsumer(moodycamel::ConcurrentQueue<std::string_view> &queue, configuru::Config &config) : queue(
-        queue) {
-
+MongoConsumer::MongoConsumer(
+        moodycamel::ConcurrentQueue<std::string> &queue,
+        configuru::Config &config) : queue(queue) {
     std::stringstream uri_string;
-
     uri_string << "mongodb://";
 
     if (config.has_key("user") and config.has_key("pass")) {

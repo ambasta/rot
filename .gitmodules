@@ -1,6 +1,9 @@
-[submodule "third_party/concurrentqueue"]
-	path = third_party/concurrentqueue
-	url = https://github.com/cameron314/concurrentqueue.git
-[submodule "third_party/Configuru"]
-	path = third_party/Configuru
+[submodule "vendor/spdlog"]
+	path = vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
+[submodule "vendor/Configuru"]
+	path = vendor/Configuru
 	url = https://github.com/emilk/Configuru.git
+[submodule "vendor/concurrentqueue"]
+	path = vendor/concurrentqueue
+	url = https://github.com/cameron314/concurrentqueue.git

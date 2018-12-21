@@ -30,7 +30,7 @@ private:
     const char THREAD_POOL_NAME[20] = "kinesis_thread_pool";
 
     std::string streamName = "CDCDefault";
-    moodycamel::ConcurrentQueue<std::string_view>& queue;
+    moodycamel::ConcurrentQueue<std::string>& queue;
 public:
     static const Aws::Auth::AWSCredentials get_credentials(configuru::Config &);
 
@@ -55,7 +55,7 @@ public:
             const std::shared_ptr<const Aws::Client::AsyncCallerContext>&
     );
 
-    KinesisProducer(moodycamel::ConcurrentQueue<std::string_view>&, configuru::Config &);
+    KinesisProducer(moodycamel::ConcurrentQueue<std::string>&, configuru::Config &);
 
     ~KinesisProducer();
 

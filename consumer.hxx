@@ -33,11 +33,11 @@ public:
 class MongoConsumer {
 private:
     int checkpoint = 0;
-    moodycamel::ConcurrentQueue<std::string_view>& queue;
+    moodycamel::ConcurrentQueue<std::string>& queue;
 public:
     auto get_server_status();
 
-    MongoConsumer(moodycamel::ConcurrentQueue<std::string_view>&, configuru::Config&);
+    MongoConsumer(moodycamel::ConcurrentQueue<std::string>&, configuru::Config&);
 
     void init();
 };
