@@ -11,17 +11,23 @@
 
 #include <aws/firehose/FirehoseClient.h>
 #include <aws/core/utils/logging/LogLevel.h>
+#include <aws/core/utils/logging/FormattedLogSystem.h>
+#include <aws/core/utils/logging/ConsoleLogSystem.h>
 
 #include <concurrentqueue.h>
 #include <configuru.hpp>
 #include <spdlog.h>
 
+#include <utils/spdLogSystem.hxx>
+
 class AwsProducer {
-private:
-    std::shared_ptr<moodycamel::ConcurrentQueue<std::string>> queue;
+protected:
     Aws::SDKOptions options{};
     std::shared_ptr<Aws::Client::ClientConfiguration> configuration = nullptr;
     std::shared_ptr<Aws::Client::AWSClient> client = nullptr;
+
+    std::shared_ptr<moodycamel::ConcurrentQueue<std::string>>& queue;
+    std::shared_ptr<Logger> logger = nullptr;
 
     virtual const auto make_record(std::string_view) = 0;
     virtual const auto make_request(std::string_view) = 0;
@@ -29,7 +35,7 @@ private:
 public:
     virtual AbstractProducer(moodycamel::ConcurrentQueue<std::string>&) = 0;
     virtual ~AbstractProducer(moodycamel::ConcurrentQueue<std::string>&) = 0;
-    virtual void set_options(configuru::Config&) = 0;
+    virtual void set_options(configuru::Config&, std::shared_ptr<Logger>) = 0;
     virtual const auto get_credentials() = 0;
     virtual const auto push(std::string_view) = 0;
     virtual const auto push(std::vector<std::string_view>) = 0;
@@ -39,8 +45,7 @@ public:
 };
 
 class FirehoseProducer : public AwsProducer {
-    void set_options(configuru::Config& config) override {
-        auto console = spdlog::stdout_color_mt("console");
+    void set_options(configuru::Config& config, std::shared_ptr<Logger> logger) override {
         auto logLevel = Aws::Utils::Logging::LogLevel::Error;
 
         if (config.has_key("logLevel")) {
@@ -60,18 +65,28 @@ class FirehoseProducer : public AwsProducer {
             }
         }
         options.loggingOptions.logLevel = logLevel;
+        options.loggingOptions.logger_create_fn = logger.get_aws_logger();
     }
-    FirehoseProducer() {
-        /*
-         * For implicit client credentials
-         * Aws::MakeShared<Aws::Firehose::FirehoseClient>(ALLOCATION_TAG, config);
-         */
-//        client = Aws::MakeShared<Aws::Firehose::FirehoseClient>(
-//                ALLOCATION_TAG,
-//                get_credentials(),
-//                config);
-//        Since CUSTOM_MEMORY_MANAGEMENT is off, Aws::Types resolve to std::Types
-        client = std::make_shared<Aws::Firehose::FirehoseClient>(get_credentials(), config);
+
+    void setLogging() {
+        Aws::Utils::Logging::InitializeAWSLogging(
+                std::make_shared<Aws::Utils::Logging::DefaultLogSystem>(
+                        "Firehose", logLevel, "aws_sdk_"));
     }
+
+    FirehoseProducer()
+
+//    FirehoseProducer() {
+//        /*
+//         * For implicit client credentials
+//         * Aws::MakeShared<Aws::Firehose::FirehoseClient>(ALLOCATION_TAG, config);
+//         */
+////        client = Aws::MakeShared<Aws::Firehose::FirehoseClient>(
+////                ALLOCATION_TAG,
+////                get_credentials(),
+////                config);
+////        Since CUSTOM_MEMORY_MANAGEMENT is off, Aws::Types resolve to std::Types
+//        client = std::make_shared<Aws::Firehose::FirehoseClient>(get_credentials(), config);
+//    }
 };
 #endif //CDCREADER_PRODUCER_HXX

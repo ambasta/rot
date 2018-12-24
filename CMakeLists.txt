@@ -35,7 +35,7 @@ ENDIF ()
 
 LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 ADD_SUBDIRECTORY(src)
-TARGET_INCLUDE_DIRECTORIES(${PROJECT_NAME} PUBLIC include)
+# TARGET_INCLUDE_DIRECTORIES(${PROJECT_NAME} PUBLIC include)
 # When headers are shared in both include (for global use) and src (for compilation purposes)
 # For another, use local include dir while building, but install include dir on installataion
 #TARGET_INCLUDE_DIRECTORIES(
