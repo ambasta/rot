@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="spdlog"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\src\producer\;CMake Files\src\utils\;CMake Files\src\vendor\;CMake Files\src\vendor\spdlog\;CMake Files\src\vendor\spdlog\cmake\;CMake Files\cmake\;CMake Files\cmake\modules\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib64\;CMake Files\..\..\..\..\usr\lib64\cmake\;CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\;CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\platform\;CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-core\;CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-firehose\;CMake Files\..\..\..\..\usr\lib64\cmake\libmongocxx-3.3.0\;CMake Files\..\..\..\..\usr\lib64\cmake\libbsoncxx-3.3.0\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/amitprakash/CLionProjects/rot/build/vendor"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spdlog_headers_for_ide">
+				<Option working_dir="/home/amitprakash/CLionProjects/rot/build/vendor"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 spdlog_headers_for_ide"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/async.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/async_logger.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/common.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/async_logger_impl.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/circular_q.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/console_globals.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/file_helper.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/fmt_helper.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/log_msg.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/logger_impl.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/mpmc_blocking_q.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/null_mutex.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/os.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/pattern_formatter.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/periodic_worker.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/registry.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/details/thread_pool.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/bin_to_hex.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/bundled/colors.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/bundled/core.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/bundled/format-inl.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/bundled/format.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/bundled/ostream.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/bundled/posix.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/bundled/printf.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/bundled/ranges.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/bundled/time.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/fmt.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/fmt/ostr.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/formatter.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/logger.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/android_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/ansicolor_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/base_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/basic_file_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/daily_file_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/dist_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/msvc_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/null_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/ostream_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/rotating_file_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/stdout_color_sinks.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/stdout_sinks.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/syslog_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/sinks/wincolor_sink.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/spdlog.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/tweakme.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/include/spdlog/version.h">
+			<Option target="spdlog_headers_for_ide"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/producer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\producer\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/utils/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\utils\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\vendor\spdlog\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/cmake/Config.cmake.in">
+			<Option virtualFolder="CMake Files\src\vendor\spdlog\cmake\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/cmake/sanitizers.cmake">
+			<Option virtualFolder="CMake Files\src\vendor\spdlog\cmake\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/cmake/spdlog.pc.in">
+			<Option virtualFolder="CMake Files\src\vendor\spdlog\cmake\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/cmake/modules/FindConcurrentQueue.cmake">
+			<Option virtualFolder="CMake Files\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/cmake/modules/FindConfiguru.cmake">
+			<Option virtualFolder="CMake Files\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/cmake/modules/Findmongocxx.cmake">
+			<Option virtualFolder="CMake Files\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/cmake/modules/Findspdlog.cmake">
+			<Option virtualFolder="CMake Files\cmake\modules\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/AWSSDK/AWSSDKConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/AWSSDK/AWSSDKConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/AWSSDK/compiler_settings.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/AWSSDK/initialize_project_version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/AWSSDK/platformDeps.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/AWSSDK/resolve_platform.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/AWSSDK/sdksCommon.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/AWSSDK/utilities.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/AWSSDK/platform/linux.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\platform\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/AWSSDK/platform/unix.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\platform\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/aws-cpp-sdk-core/aws-cpp-sdk-core-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-core\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/aws-cpp-sdk-core/aws-cpp-sdk-core-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-core\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/aws-cpp-sdk-core/aws-cpp-sdk-core-targets-gentoo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-core\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/aws-cpp-sdk-core/aws-cpp-sdk-core-targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-core\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/aws-cpp-sdk-firehose/aws-cpp-sdk-firehose-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-firehose\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/aws-cpp-sdk-firehose/aws-cpp-sdk-firehose-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-firehose\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/aws-cpp-sdk-firehose/aws-cpp-sdk-firehose-targets-gentoo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-firehose\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/aws-cpp-sdk-firehose/aws-cpp-sdk-firehose-targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-firehose\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/libmongocxx-3.3.0/libmongocxx-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\libmongocxx-3.3.0\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/libmongocxx-3.3.0/libmongocxx-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\libmongocxx-3.3.0\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/libbsoncxx-3.3.0/libbsoncxx-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\libbsoncxx-3.3.0\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/../../../../usr/lib64/cmake/libbsoncxx-3.3.0/libbsoncxx-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib64\cmake\libbsoncxx-3.3.0\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

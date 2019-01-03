@@ -1,0 +1,12 @@
+FIND_PATH(spdlog_CMAKE_DIR
+        NAMES CMakeLists.txt
+        PATHS ${CMAKE_INSTALL_INCLUDEDIR} "vendor"
+        PATH_SUFFIXES spdlog)
+
+SET(CMAKE_VENDOR_BUILD_DIR ${CMAKE_SOURCE_DIR}/build/vendor)
+
+IF(spdlog_CMAKE_DIR)
+    ADD_SUBDIRECTORY(${spdlog_CMAKE_DIR} ${CMAKE_VENDOR_BUILD_DIR})
+ELSE()
+    MESSAGE(FATAL_ERROR "spdlog not found")
+ENDIF()

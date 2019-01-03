@@ -18,8 +18,6 @@
 #include <aws/firehose/model/PutRecordRequest.h>
 #include <aws/firehose/model/PutRecordBatchRequest.h>
 
-static const char* ALLOCATION_TAG = "FirehoseClient";
-
 class KinesisProducer {
 private:
     Aws::SDKOptions options;

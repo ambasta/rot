@@ -1,50 +1,64 @@
 FIND_PACKAGE(ConcurrentQueue)
 FIND_PACKAGE(Configuru)
-
 FIND_PACKAGE(spdlog)
-IF (NOT spdlog_FOUND)
-    MESSAGE("Spdlog not found")
-    ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/src/vendor/spdlog)
-ELSE()
-    MESSAGE("Spdlog found")
-ENDIF()
 
 FIND_PACKAGE(Threads)
 
 FIND_PACKAGE(CURL)
 FIND_PACKAGE(AWSSDK REQUIRED COMPONENTS firehose)
-FIND_PACKAGE(libmongocxx REQUIRED)
+FIND_PACKAGE(mongocxx REQUIRED)
 
-# ADD_SUBDIRECTORY(utils)
-ADD_SUBDIRECTORY(consumer)
+get_cmake_property(_variableNames VARIABLES)
+list (SORT _variableNames)
+foreach (_variableName ${_variableNames})
+    message(STATUS "${_variableName}=${${_variableName}}")
+endforeach()
+
+ADD_SUBDIRECTORY(utils)
 ADD_SUBDIRECTORY(producer)
 
-ADD_LIBRARY(logger utils/spdLogSystem.cxx)
-ADD_LIBRARY(rot::logger ALIAS logger)
-TARGET_INCLUDE_DIRECTORIES(logger
-        PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-TARGET_LINK_LIBRARIES(logger
-        PUBLIC
-        spdlog::spdlog)
+ADD_LIBRARY(streamHandler streamHandler.cxx)
+ADD_LIBRARY(rot::streamHandler ALIAS streamHandler)
 
-ADD_EXECUTABLE(${PROJECT_NAME} main.cxx)
-TARGET_INCLUDE_DIRECTORIES(
-        ${PROJECT_NAME}
+TARGET_INCLUDE_DIRECTORIES(streamHandler
         PUBLIC
-        MoodyCamel::ConcurrentQueue
-        configuru::Configuru
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+            $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+TARGET_LINK_LIBRARIES(streamHandler
+        PUBLIC
+            MoodyCamel::ConcurrentQueue
+            configuru::Configuru)
+
+ADD_LIBRARY(awsSetup AWSSetup.cxx)
+ADD_LIBRARY(rot::awsSetup ALIAS awsSetup)
+TARGET_INCLUDE_DIRECTORIES(awsSetup
+        PUBLIC
+            $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+TARGET_LINK_LIBRARIES(awsSetup
+        PUBLIC
+            aws-cpp-sdk-core
         PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src)
+            rot::logger)
 
+ADD_EXECUTABLE(${PROJECT_NAME} rot.cxx)
 TARGET_LINK_LIBRARIES(${PROJECT_NAME}
-        PUBLIC
-        MoodyCamel::ConcurrentQueue
-        configuru::Configuru
         PRIVATE
-        rot::logger
-        rot::producer
-        rot::consumer)
+            rot::awsSetup
+            rot::streamHandler
+            rot::kdfProducer)
+
+#ADD_EXECUTABLE(${PROJECT_NAME} main.cxx)
+#TARGET_INCLUDE_DIRECTORIES(${PROJECT_NAME}
+#        PUBLIC
+#            $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+#            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+#
+#TARGET_LINK_LIBRARIES(${PROJECT_NAME}
+#        PUBLIC
+#        MoodyCamel::ConcurrentQueue
+#        configuru::Configuru
+#        mongo::mongocxx
+#        Threads::Threads
+#        PRIVATE
+#        rot::logger)
