@@ -5,6 +5,8 @@
 #ifndef ROT_STREAMHANDLER_HXX
 #define ROT_STREAMHANDLER_HXX
 
+#include <memory>
+#include <string>
 #include <concurrentqueue.h>
 #include <configuru.hpp>
 
@@ -13,7 +15,7 @@ protected:
     std::shared_ptr<moodycamel::ConcurrentQueue<std::string> > &queue;
     std::size_t maximum_size;
 public:
-    StreamHandler(std::shared_ptr<moodycamel::ConcurrentQueue<std::string> > &);
+    explicit StreamHandler(std::shared_ptr<moodycamel::ConcurrentQueue<std::string> > &);
 
     void set_options(configuru::Config &);
 };

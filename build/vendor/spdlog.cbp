@@ -5,26 +5,26 @@
 		<Option title="spdlog"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\src\producer\;CMake Files\src\utils\;CMake Files\src\vendor\;CMake Files\src\vendor\spdlog\;CMake Files\src\vendor\spdlog\cmake\;CMake Files\cmake\;CMake Files\cmake\modules\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib64\;CMake Files\..\..\..\..\usr\lib64\cmake\;CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\;CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\platform\;CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-core\;CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-firehose\;CMake Files\..\..\..\..\usr\lib64\cmake\libmongocxx-3.3.0\;CMake Files\..\..\..\..\usr\lib64\cmake\libbsoncxx-3.3.0\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\src\backends\;CMake Files\src\producer\;CMake Files\src\utils\;CMake Files\src\vendor\;CMake Files\src\vendor\spdlog\;CMake Files\src\vendor\spdlog\cmake\;CMake Files\include\;CMake Files\cmake\;CMake Files\cmake\modules\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib64\;CMake Files\..\..\..\..\usr\lib64\cmake\;CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\;CMake Files\..\..\..\..\usr\lib64\cmake\AWSSDK\platform\;CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-core\;CMake Files\..\..\..\..\usr\lib64\cmake\aws-cpp-sdk-firehose\;CMake Files\..\..\..\..\usr\lib64\cmake\libmongocxx-3.3.0\;CMake Files\..\..\..\..\usr\lib64\cmake\libbsoncxx-3.3.0\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/amitprakash/CLionProjects/rot/build/vendor"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="spdlog_headers_for_ide">
 				<Option working_dir="/home/amitprakash/CLionProjects/rot/build/vendor"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 spdlog_headers_for_ide"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 spdlog_headers_for_ide"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/amitprakash/CLionProjects/rot/build/vendor/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -181,6 +181,9 @@
 		<Unit filename="/home/amitprakash/CLionProjects/rot/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\"/>
 		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/src/backends/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\backends\"/>
+		</Unit>
 		<Unit filename="/home/amitprakash/CLionProjects/rot/src/producer/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\producer\"/>
 		</Unit>
@@ -198,6 +201,9 @@
 		</Unit>
 		<Unit filename="/home/amitprakash/CLionProjects/rot/src/vendor/spdlog/cmake/spdlog.pc.in">
 			<Option virtualFolder="CMake Files\src\vendor\spdlog\cmake\"/>
+		</Unit>
+		<Unit filename="/home/amitprakash/CLionProjects/rot/include/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\include\"/>
 		</Unit>
 		<Unit filename="/home/amitprakash/CLionProjects/rot/cmake/modules/FindConcurrentQueue.cmake">
 			<Option virtualFolder="CMake Files\cmake\modules\"/>

@@ -13,6 +13,7 @@ private:
     Aws::SDKOptions sdkOptions;
 
     AWSSingleton() = default;
+
 public:
     AWSSingleton(const AWSSingleton &) = delete;
 
@@ -20,7 +21,7 @@ public:
 
     ~AWSSingleton();
 
-    static AWSSingleton* getAWSInstance();
+    static AWSSingleton *getInstance();
 
     void init();
 };

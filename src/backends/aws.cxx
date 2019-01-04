@@ -3,11 +3,11 @@
 //
 
 #include <utils/logger.hxx>
-#include <AWSSetup.hxx>
+#include <backends/aws.hxx>
 
 AWSSingleton* AWSSingleton::instance = nullptr;
 
-AWSSingleton* AWSSingleton::getAWSInstance() {
+AWSSingleton* AWSSingleton::getInstance() {
     if (instance == nullptr) {
         instance = new AWSSingleton();
     }

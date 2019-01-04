@@ -5,12 +5,12 @@
 #define CONFIGURU_IMPLEMENTATION 1
 #include <configuru.hpp>
 
-#include <AWSSetup.hxx>
+#include <backends/aws.hxx>
 #include <producer/kinesisDataFirehoseProducer.hxx>
 
 int main() {
 
-    auto initializeAWS = AWSSingleton::getAWSInstance();
+    auto initializeAWS = AWSSingleton::getInstance();
     initializeAWS->init();
 
     auto queue = std::make_shared<moodycamel::ConcurrentQueue<std::string> >();
