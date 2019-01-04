@@ -16,7 +16,8 @@ Currently the project only pushes live deltas from the source.
 
 ## Dependencies
 The project aims to be all inclusive packaging third party libraries in src/vendor. However, system-wide dependencies are defaulted to for:
-* mongo-cxx-driver
-* aws-cpp-sdk[core,firehose]
-* spdlog
-* concurrentqueue
+
+    * mongo-cxx-driver
+    * aws-cpp-sdk[core,firehose]
+    * spdlog
+    * concurrentqueue
