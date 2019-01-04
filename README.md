@@ -2,9 +2,11 @@
 A general purpose data replicator. This project allows users to replicate data from one database to another.
 
 Following sources and sinks are supported:
+
     * MongoDB: Via change streams
     * Postgres: Via replica
 Following sinks are supported:
+
     * KinesisDataFirehose
     * Kinesis [ToDo]
     * Kafka [ToDo]
